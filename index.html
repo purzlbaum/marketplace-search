@@ -1,0 +1,218 @@
+<!doctype html>
+<html class="no-js" lang="de">
+
+<head>
+    <meta charset="utf-8">
+    <title>Marketplace Search</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta property="og:title" content="">
+    <meta property="og:type" content="">
+    <meta property="og:url" content="">
+    <meta property="og:image" content="">
+
+    <link rel="shortcut icon" href="dist/favicon/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="dist/favicon/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="57x57" href="dist/favicon/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="dist/favicon/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="dist/favicon/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="dist/favicon/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="dist/favicon/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="dist/favicon/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="dist/favicon/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="dist/favicon/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="dist/favicon/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192"  href="dist/favicon/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="dist/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="dist/favicon/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="dist/favicon/favicon-16x16.png">
+    <link rel="manifest" href="dist/favicon/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="dist/favicon/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+    <style>
+        html, body, div, span, applet, object, iframe,
+        h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+        a, abbr, acronym, address, big, cite, code,
+        del, dfn, em, img, ins, kbd, q, s, samp,
+        small, strike, strong, sub, sup, tt, var,
+        b, u, i, center,
+        dl, dt, dd, ol, ul, li,
+        fieldset, form, label, legend,
+        table, caption, tbody, tfoot, thead, tr, th, td,
+        article, aside, canvas, details, embed,
+        figure, figcaption, footer, header, hgroup,
+        menu, nav, output, ruby, section, summary,
+        time, mark, audio, video, button {
+            margin: 0;
+            padding: 0;
+            border: 0;
+            font-size: 100%;
+            font: inherit;
+            vertical-align: baseline;
+            -webkit-appearance: none;
+            background: none;
+        }
+
+        /* HTML5 display-role reset for older browsers */
+        article, aside, details, figcaption, figure,
+        footer, header, hgroup, menu, nav, section {
+            display: block;
+        }
+
+        body {
+            line-height: 1;
+        }
+
+        ol, ul {
+            list-style: none;
+        }
+
+        blockquote, q {
+            quotes: none;
+        }
+
+        blockquote:before, blockquote:after,
+        q:before, q:after {
+            content: '';
+            content: none;
+        }
+
+        table {
+            border-collapse: collapse;
+            border-spacing: 0;
+        }
+
+        @font-face {
+            font-family: 'Inter';
+            src: url('./dist/fonts/Inter-Regular.woff2') format('woff2'),
+            url('./dist/fonts/Inter-Regular.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        html {
+            font-size: 62.5%;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            -webkit-text-size-adjust: 100%;
+            font-size: 1.6rem;
+            line-height: 1.5;
+        }
+
+        .title-h1 {
+            font-weight: 400;
+            margin-left: auto;
+            margin-right: auto;
+            max-width: 600px;
+            font-size: 5.6rem;
+        }
+
+        .title-h1 + * {
+            margin-top: 32px;
+        }
+
+        .form {
+            margin-left: auto;
+            margin-right: auto;
+            max-width: 600px;
+        }
+
+        .form__group {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            justify-content: flex-start;
+            align-items: center;
+        }
+
+        .form__group--button {
+            justify-content: flex-end;
+        }
+
+        .form__group + .form__group {
+            margin-top: 8px;
+        }
+
+        .form__group + .form__group--button {
+            margin-top: 16px;
+        }
+
+        .form__label {
+            width: 100px;
+        }
+
+        .form__input {
+            border: 1px solid #EEEEEE;
+            border-radius: 6px;
+            padding: 6px 12px;
+            width: calc(100% - 100px);
+            resize: none;
+            overflow: hidden;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .form__group--message {
+            padding-left: 100px;
+            color: #388E3C;
+            opacity: 0;
+            transition: opacity 0.4s linear;
+        }
+
+        .form__group--message.success {
+            opacity: 1;
+        }
+
+        .form__button {
+            font-family: 'Inter', sans-serif;
+            padding: 6px 12px;
+            background: #3949AB;
+            color: #ffffff;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background 0.4s ease;
+        }
+
+        .form__button:hover {
+            background: #1A237E;
+        }
+    </style>
+</head>
+
+<body>
+<h1 class="title-h1">
+    Marketplace Search
+</h1>
+<form class="form" onsubmit="return false;">
+    <div class="form__group">
+        <label for="searchterm" class="form__label">Suchbegriff</label>
+        <input id="searchterm" class="form__input" type="text" onkeypress="checkEnter(event)">
+    </div>
+    <div class="form__group form__group--button">
+        <button id="copy" class="form__button" type="button" onclick="searchMarketplaces()">Suchen</button>
+    </div>
+</form>
+
+<script>
+    function searchMarketplaces() {
+        const searchTerm = document.getElementById('searchterm').value;
+        window.open('https://www.ricardo.ch/de/s/' + searchTerm, '_blank');
+        window.open('https://www.anibis.ch/de/q/suche/?query=' + searchTerm, '_blank');
+        window.open('https://www.tutti.ch/de/q/suche/?query=' + searchTerm, '_blank');
+    }
+
+    function checkEnter(event) {
+        if (event.key === 'Enter') {
+            event.preventDefault();
+            searchMarketplaces();
+        }
+    }
+</script>
+
+</body>
+
+</html>
